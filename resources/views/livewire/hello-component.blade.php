@@ -2,7 +2,6 @@
     <h2 class="text-2xl font-bold text-gray-800 mb-6">Livewire Component</h2>
     
     <div class="mb-6 bg-gray-50 rounded-lg p-4 border border-gray-200">
-        <h3 class="text-sm font-semibold text-gray-700 mb-3">Current Values</h3>
         <ul class="space-y-2">
             <li class="text-sm text-gray-600">
                 <span class="font-medium">Name:</span> 
@@ -12,10 +11,14 @@
                 <span class="font-medium">Password:</span> 
                 <span class="text-gray-900">{{ $pass ? str_repeat('*', strlen($pass)) : 'Not set' }}</span>
             </li>
+            <li class="text-sm text-gray-600">
+                <span class="font-medium">Update:</span> 
+                <span class="text-gray-900">{{ $message }}</span>
+            </li>
         </ul>
     </div>
     
-    <form wire:submit="updateMessage" class="space-y-4">
+    <form wire:submit.prevent="updateMessageText" class="space-y-4">
         <div>
             <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
                 Name
